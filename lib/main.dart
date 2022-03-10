@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:islami/screens/homeScreen.dart';
 import 'package:islami/core/routes.dart';
+import 'package:islami/screens/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,9 +19,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const HomeScreen(),
+      home: MyCustomSplashScreen(),
       routes: RouteGenerator.generateRoutes(),
-      initialRoute: HomeScreen.routeName,
+      // initialRoute: HomeScreen.routeName,
     );
   }
 }

@@ -46,7 +46,7 @@ class _HomeScreenState extends State<HomeScreen> {
             title: const Text(
               'Islami',
               textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black),
+              style: TextStyle(color: Colors.black, fontSize: 25),
             ),
           ),
           body: getScreen(),
