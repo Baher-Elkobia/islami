@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 const kEmptyColor = 0x0D000000;
 
 /// basic colors
-const kTeal50 = Color(0xFFE0F2F1);
-const kGold= Color(0xffB7935F);
+const kWhite = Color(0xFFE0F2F1);
+const kPrimary= Color(0xffB7935F);
+const kSecondary= Color(0xffd5c2a2);
 
 const kGrey600 = Color(0xFF546E7A);
 const kGrey200 = Color(0xFFEEEEEE);

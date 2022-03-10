@@ -59,7 +59,6 @@ class _HomeScreenState extends State<HomeScreen> {
                 setState(() {});
               },
               currentIndex: pageIndex,
-              selectedItemColor: Colors.black54,
               showUnselectedLabels: false,
               items: const [
                 BottomNavigationBarItem(

@@ -11,10 +11,10 @@ import 'colors.dart';
 // }
 
 const ColorScheme kColorScheme = ColorScheme(
-  primary: kGold,
+  primary: kPrimary,
   primaryContainer: kDarkBG,
-  secondary: kTeal50,
-  secondaryContainer: kDarkBG,
+  secondary: kSecondary,
+  secondaryContainer: kSecondary,
   surface: kSurfaceWhite,
   background: Colors.white,
   error: kErrorRed,
@@ -112,7 +112,7 @@ ThemeData lightTheme(String language,
     brightness: Brightness.light,
     cardColor: Colors.white,
     unselectedWidgetColor: Colors.grey,
-    toggleableActiveColor: kGold,
+    toggleableActiveColor: kPrimary,
     errorColor: kErrorRed,
     buttonTheme: const ButtonThemeData(
         colorScheme: kColorScheme,
@@ -140,9 +140,9 @@ ThemeData lightTheme(String language,
       ),
     ),
     bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-      backgroundColor: kGold,
+      backgroundColor: kPrimary,
       selectedItemColor: kDarkBG,
-      unselectedItemColor: kTeal50,
+      unselectedItemColor: kWhite,
     ),
     tabBarTheme: const TabBarTheme(
       labelColor: Colors.black,
