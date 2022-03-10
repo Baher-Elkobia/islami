@@ -3,6 +3,7 @@ import 'package:islami/screens/quran/quranScreen.dart';
 import 'package:islami/screens/radio/radioScreen.dart';
 import 'package:islami/screens/sebha/sebhaScreen.dart';
 
+import 'package:islami/core/theme.dart';
 import 'ahadeth/ahadethScreen.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -19,13 +20,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
   Widget getScreen() {
     if (pageIndex == 0) {
-      return QuranScreen();
+      return const QuranScreen();
     } else if (pageIndex == 1) {
-      return AhadethScreen();
+      return const AhadethScreen();
     } else if (pageIndex == 2) {
-      return SebhaScreen();
+      return const SebhaScreen();
     } else{
-      return RadioScreen();
+      return const RadioScreen();
     }
   }
 
@@ -51,7 +52,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           body: getScreen(),
           bottomNavigationBar: Theme(
-            data: Theme.of(context).copyWith(canvasColor: Color(0xffB7935F)),
+            data: Theme.of(context).copyWith(canvasColor: kColorScheme.primary),
             child: BottomNavigationBar(
               onTap: (value) {
                 pageIndex = value;
