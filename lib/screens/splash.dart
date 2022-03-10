@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 
+import '../core/theme.dart';
 import 'homeScreen.dart';
 
 class MyCustomSplashScreen extends StatefulWidget {
@@ -69,7 +70,7 @@ class _MyCustomSplashScreenState extends State<MyCustomSplashScreen>
     double _height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: const Color(0xffB7935F),
+      backgroundColor: kColorScheme.primary,
       body: Stack(
         children: [
           Column(

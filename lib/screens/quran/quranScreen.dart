@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:islami/core/theme.dart';
 
 import 'package:islami/screens/quran/suraName.dart';
 import 'package:islami/core/consts.dart';
@@ -14,7 +15,7 @@ class QuranScreen extends StatelessWidget {
           children: [
             Expanded(flex: 3, child: Image.asset('assets/images/moshaf.png')),
             const SizedBox(height: 20),
-            const Divider(color: Color(0xffB7935F), thickness: 2, height: 0),
+            Divider(color: kColorScheme.primary, thickness: 2, height: 0),
             Expanded(
                 flex: 6,
                 child: Column(
@@ -23,14 +24,14 @@ class QuranScreen extends StatelessWidget {
                       children: [
                         Expanded(
                             child: Container(
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                               border: Border(
                             right:
-                                BorderSide(color: Color(0xffB7935F), width: 1),
+                                BorderSide(color: kColorScheme.primary, width: 1),
                             left:
-                                BorderSide(color: Color(0xffB7935F), width: 2),
+                                BorderSide(color: kColorScheme.primary, width: 2),
                             bottom:
-                                BorderSide(color: Color(0xffB7935F), width: 2),
+                                BorderSide(color: kColorScheme.primary, width: 2),
                           )),
                           width: double.infinity,
                           child: const Padding(
@@ -45,14 +46,14 @@ class QuranScreen extends StatelessWidget {
                         )),
                         Expanded(
                             child: Container(
-                          decoration: const BoxDecoration(
+                          decoration: BoxDecoration(
                               border: Border(
                             right:
-                                BorderSide(color: Color(0xffB7935F), width: 2),
+                                BorderSide(color: kColorScheme.primary, width: 2),
                             left:
-                                BorderSide(color: Color(0xffB7935F), width: 1),
+                                BorderSide(color: kColorScheme.primary, width: 1),
                             bottom:
-                                BorderSide(color: Color(0xffB7935F), width: 2),
+                                BorderSide(color: kColorScheme.primary, width: 2),
                           )),
                           width: double.infinity,
                           child: const Padding(
@@ -70,8 +71,8 @@ class QuranScreen extends StatelessWidget {
                     Expanded(
                       child: ListView.separated(
                           separatorBuilder: (ctx, index) {
-                            return const Divider(
-                                color: Color(0xffB7935F),
+                            return Divider(
+                                color: kColorScheme.primary,
                                 thickness: 1,
                                 height: 0);
                           },
