@@ -1,4 +1,7 @@
+import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:islami/core/utils.dart';
 import 'package:islami/screens/quran/quranScreen.dart';
 import 'package:islami/screens/radio/radioScreen.dart';
 import 'package:islami/screens/sebha/sebhaScreen.dart';
@@ -32,6 +35,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
+
     return SafeArea(
       child: Container(
         decoration: const BoxDecoration(
@@ -44,11 +49,29 @@ class _HomeScreenState extends State<HomeScreen> {
             centerTitle: true,
             backgroundColor: Colors.transparent,
             elevation: 0,
-            title: const Text(
-              'Islami',
-              textAlign: TextAlign.center,
-              style: TextStyle(color: Colors.black, fontSize: 25),
-            ),
+            title: Padding(
+              padding: const EdgeInsets.only(top:20.0),
+              child: DefaultTextStyle(
+                child: AnimatedTextKit(
+                  animatedTexts: [
+                    TypewriterAnimatedText(
+                      'Islami App',
+                      speed: const Duration(milliseconds: 250),
+                    ),
+                  ],
+                  displayFullTextOnTap: true,
+                  stopPauseOnTap: true,
+                  isRepeatingAnimation: false,
+                ),
+                textAlign: TextAlign.center,
+                style: GoogleFonts.libreBaskerville(
+                  textStyle: TextStyle(
+                      fontSize: SizeConfig.blockSizeHorizontal * 6,
+                      fontWeight: FontWeight.bold,
+                      color: kColorScheme.onPrimary),
+                ),
+              ),
+            )
           ),
           body: getScreen(),
           bottomNavigationBar: Theme(

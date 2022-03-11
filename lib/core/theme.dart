@@ -18,7 +18,7 @@ const ColorScheme kColorScheme = ColorScheme(
   surface: kSurfaceWhite,
   background: Colors.white,
   error: kErrorRed,
-  onPrimary: kDarkBG,
+  onPrimary: kPrimaryMore,
   onSecondary: kDarkBG,
   onSurface: kDarkBG,
   onBackground: kDarkBG,
