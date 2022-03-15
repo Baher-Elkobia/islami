@@ -7,7 +7,10 @@ import 'package:islami/screens/radio/radioScreen.dart';
 import 'package:islami/screens/sebha/sebhaScreen.dart';
 
 import 'package:islami/core/theme.dart';
+import 'package:islami/screens/settingsScreen.dart';
 import 'ahadeth/ahadethScreen.dart';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomeScreen extends StatefulWidget {
   static String routeName = '/home';
@@ -36,6 +39,7 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    ThemeData theme = Theme.of(context);
 
     return SafeArea(
       child: Container(
@@ -55,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: AnimatedTextKit(
                   animatedTexts: [
                     TypewriterAnimatedText(
-                      'Islami App',
+                      AppLocalizations.of(context)!.islami,
                       speed: const Duration(milliseconds: 250),
                     ),
                   ],
@@ -74,6 +78,43 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           ),
           body: getScreen(),
+          drawer: Drawer(
+            child: ListView(
+              padding: EdgeInsets.zero,
+              children: [
+                DrawerHeader(
+                  padding: EdgeInsets.only(left: 10),
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                  child: Row(
+                    children: [
+                      Icon(Icons.settings, color: Colors.white70,size: 30),
+                      SizedBox(width: 7),
+                      Text('Islami Settings', style: theme.textTheme.headline6?.copyWith(color: Colors.white70)),
+                    ],
+                  ),
+                ),
+                ListTile(
+                  title: const Text('Settings'),
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.pushNamed(context, SettingScreen.routeName);
+                  },
+                ),
+                Divider(color: theme.colorScheme.primary,thickness: 0.5),
+                ListTile(
+                  title: const Text('About Us'),
+                  onTap: () {
+                    // Update the state of the app.
+                    // ...
+                    Navigator.pop(context);
+                  },
+                ),
+                Divider(color: theme.colorScheme.primary,thickness: 0.5),
+              ],
+            ),
+          ),
           bottomNavigationBar: Theme(
             data: Theme.of(context).copyWith(canvasColor: kColorScheme.primary),
             child: BottomNavigationBar(

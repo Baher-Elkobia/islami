@@ -125,7 +125,7 @@ ThemeData lightTheme(String language,
     // iconTheme: _customIconTheme(base.iconTheme),
     // hintColor: Colors.black26,
     // backgroundColor: Colors.white,
-    primaryColor: kLightPrimary,
+    primaryColor: kPrimary,
     scaffoldBackgroundColor: Colors.transparent,
     appBarTheme: const AppBarTheme(
       color: Colors.transparent,
