@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:islami/core/theme.dart';
 
-import 'package:islami/screens/quran/suraName.dart';
+import 'package:islami/screens/quran/suraItem.dart';
 import 'package:islami/core/consts.dart';
 
 class QuranScreen extends StatelessWidget {
@@ -78,8 +78,8 @@ class QuranScreen extends StatelessWidget {
                           },
                           itemCount: suraList.length,
                           itemBuilder: (ctx, index) {
-                            return SuraInfo(
-                              suraInfo: suraList[index],
+                            return SuraItem(
+                              suraMap: suraList[index],
                             );
                           }),
                     ),
