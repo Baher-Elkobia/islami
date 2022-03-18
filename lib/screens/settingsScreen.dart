@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:islami/models/lang_model.dart';
 import 'package:islami/models/theme_model.dart';
 import 'package:provider/provider.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SettingScreen extends StatefulWidget {
   static String routeName = '/settings';
@@ -31,24 +32,16 @@ class SettingScreenState extends State<SettingScreen> {
       body: CustomScrollView(
         slivers: <Widget>[
           SliverAppBar(
-            backgroundColor: Theme.of(context).primaryColor,
             leading: IconButton(
               icon: const Icon(
                 Icons.arrow_back_ios_new,
-                color: Colors.white70,
               ),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
             expandedHeight: 170,
-            title: const Text(
-              'Settings',
-              style: TextStyle(
-                  fontSize: 18,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w600),
-            ),
+            title: Text(AppLocalizations.of(context)!.settings),
             flexibleSpace: FlexibleSpaceBar(
               background: Center(
                   child: Container(
@@ -57,10 +50,8 @@ class SettingScreenState extends State<SettingScreen> {
                         borderRadius: BorderRadius.circular(50),
                         color: Colors.white70,
                       ),
-                      child: Image.asset(
-                        'assets/images/logo.png',
-                        height: 110,
-                      ))),
+                      child:
+                          Image.asset('assets/images/logo.png', height: 110))),
             ),
           ),
           SliverList(
@@ -72,10 +63,12 @@ class SettingScreenState extends State<SettingScreen> {
                   margin: const EdgeInsets.only(bottom: 2.0),
                   elevation: 0,
                   child: ListTile(
-                    leading: Icon(Icons.language),
-                    title: Text('Language'),
+                    leading: const Icon(Icons.language),
+                    title: Text(AppLocalizations.of(context)!.language),
                     trailing: DropdownButton<String>(
-                      value: langProvider.lang == 'ar' ? languageItems[0] : languageItems[1],
+                      value: langProvider.lang == 'ar'
+                          ? languageItems[0]
+                          : languageItems[1],
                       underline: Container(),
                       icon: const Icon(Icons.keyboard_arrow_down),
                       items: languageItems.map((String items) {
@@ -85,9 +78,9 @@ class SettingScreenState extends State<SettingScreen> {
                         );
                       }).toList(),
                       onChanged: (String? newValue) {
-                        if(newValue == 'العربيه'){
+                        if (newValue == 'العربيه') {
                           langProvider.changeLanguage(lang: 'ar');
-                        }else{
+                        } else {
                           langProvider.changeLanguage(lang: 'en');
                         }
                       },
@@ -116,9 +109,9 @@ class SettingScreenState extends State<SettingScreen> {
                         themeProvider.changeTheme(mode: ThemeMode.light);
                       }
                     },
-                    title: const Text(
-                      'Dark Mode',
-                      style: TextStyle(fontSize: 16),
+                    title: Text(
+                      AppLocalizations.of(context)!.darkMode,
+                      style: const TextStyle(fontSize: 16),
                     ),
                   ),
                 ),

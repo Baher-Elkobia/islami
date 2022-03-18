@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:islami/core/theme.dart';
+import 'package:islami/core/utils.dart';
 import 'package:islami/screens/ahadeth/hadethItem.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'entity/hadethInfo.dart';
 
@@ -34,6 +36,7 @@ class _AhadethScreenState extends State<AhadethScreen> {
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     if (hadethList.isEmpty) {
       getHadethList();
     }
@@ -41,31 +44,38 @@ class _AhadethScreenState extends State<AhadethScreen> {
         ? const CircularProgressIndicator()
         : SizedBox(
             width: double.infinity,
-            child: Column(
-              children: [
-                Expanded(
-                    flex: 3, child: Image.asset('assets/images/hadeth_logo.png')),
-                const SizedBox(height: 20),
-                Divider(color: kColorScheme.primary, thickness: 2, height: 0),
-                Expanded(
-                    flex: 6,
-                    child: ListView.separated(
-                        separatorBuilder: (ctx, index) {
-                          return Divider(
-                              color: kColorScheme.primary,
-                              thickness: 1,
-                              height: 0);
-                        },
-                        itemCount: hadethList.length,
-                        itemBuilder: (ctx, index) {
-                          return InkWell(
-                            onTap: () {
-
-                            },
-                            child: HadethItem(Hadethinfo: hadethList[index]),
-                          );
-                        })),
-              ],
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 1),
+              child: Column(
+                children: [
+                  Expanded(
+                      flex: 3,
+                      child: Image.asset('assets/images/hadeth_logo.png')),
+                  const SizedBox(height: 5),
+                  Divider(color: kColorScheme.primary, thickness: 1.5, height: 0),
+                  Expanded(
+                      flex: 6,
+                      child: ListView.separated(
+                          separatorBuilder: (ctx, index) {
+                            return Center(
+                              child: Container(
+                                  width: SizeConfig.safeBlockVertical * 50,
+                                  decoration: const BoxDecoration(
+                                      border: Border(
+                                    bottom: BorderSide(
+                                        color: Color(0xffB7935F), width: 1),
+                                  ))),
+                            );
+                          },
+                          itemCount: hadethList.length,
+                          itemBuilder: (ctx, index) {
+                            return InkWell(
+                              onTap: () {},
+                              child: HadethItem(hadethinfo: hadethList[index]),
+                            );
+                          })),
+                ],
+              ),
             ));
   }
 }

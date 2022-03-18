@@ -2,12 +2,14 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:islami/core/utils.dart';
+import 'package:islami/models/theme_model.dart';
 import 'package:islami/screens/quran/quranScreen.dart';
 import 'package:islami/screens/radio/radioScreen.dart';
 import 'package:islami/screens/sebha/sebhaScreen.dart';
 
 import 'package:islami/core/theme.dart';
 import 'package:islami/screens/settingsScreen.dart';
+import 'package:provider/provider.dart';
 import 'ahadeth/ahadethScreen.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
@@ -40,12 +42,13 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     SizeConfig().init(context);
     ThemeData theme = Theme.of(context);
+    ThemeProvider themeProvider = Provider.of<ThemeProvider>(context);
 
     return SafeArea(
       child: Container(
-        decoration: const BoxDecoration(
+        decoration: BoxDecoration(
             image: DecorationImage(
-                image: AssetImage('assets/images/defaultBackground.png'),
+                image: AssetImage(themeProvider.getBackground()),
                 fit: BoxFit.fill)),
         child: Scaffold(
           backgroundColor: Colors.transparent,
@@ -55,26 +58,7 @@ class _HomeScreenState extends State<HomeScreen> {
             elevation: 0,
             title: Padding(
               padding: const EdgeInsets.only(top:20.0),
-              child: DefaultTextStyle(
-                child: AnimatedTextKit(
-                  animatedTexts: [
-                    TypewriterAnimatedText(
-                      AppLocalizations.of(context)!.islami,
-                      speed: const Duration(milliseconds: 250),
-                    ),
-                  ],
-                  displayFullTextOnTap: true,
-                  stopPauseOnTap: true,
-                  isRepeatingAnimation: false,
-                ),
-                textAlign: TextAlign.center,
-                style: GoogleFonts.libreBaskerville(
-                  textStyle: TextStyle(
-                      fontSize: SizeConfig.blockSizeHorizontal * 6,
-                      fontWeight: FontWeight.bold,
-                      color: kColorScheme.onPrimary),
-                ),
-              ),
+              child: Text(AppLocalizations.of(context)!.islami, style: Theme.of(context).textTheme.headline4?.copyWith(color: kColorScheme.primary),)
             )
           ),
           body: getScreen(),
@@ -83,20 +67,20 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.zero,
               children: [
                 DrawerHeader(
-                  padding: EdgeInsets.only(left: 10),
+                  padding: const EdgeInsets.only(left: 10),
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.primary,
                   ),
                   child: Row(
                     children: [
-                      Icon(Icons.settings, color: Colors.white70,size: 30),
-                      SizedBox(width: 7),
-                      Text('Islami Settings', style: theme.textTheme.headline6?.copyWith(color: Colors.white70)),
+                      const Icon(Icons.settings, color: Colors.white70,size: 30),
+                      const SizedBox(width: 7),
+                      Text(AppLocalizations.of(context)!.islamiSettings, style: theme.textTheme.headline6?.copyWith(color: Colors.white70)),
                     ],
                   ),
                 ),
                 ListTile(
-                  title: const Text('Settings'),
+                  title: Text(AppLocalizations.of(context)!.settings),
                   onTap: () {
                     Navigator.pop(context);
                     Navigator.pushNamed(context, SettingScreen.routeName);
@@ -104,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
                 Divider(color: theme.colorScheme.primary,thickness: 0.5),
                 ListTile(
-                  title: const Text('About Us'),
+                  title: Text(AppLocalizations.of(context)!.aboutUs),
                   onTap: () {
                     // Update the state of the app.
                     // ...
@@ -124,19 +108,19 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               currentIndex: pageIndex,
               showUnselectedLabels: false,
-              items: const [
+              items: [
                 BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/quran.png')),
-                    label: 'Quran'),
+                    icon: const ImageIcon(AssetImage('assets/images/quran.png')),
+                    label: AppLocalizations.of(context)!.quran),
                 BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/hadis.png')),
-                    label: 'Hadis'),
+                    icon: const ImageIcon(AssetImage('assets/images/hadis.png')),
+                    label: AppLocalizations.of(context)!.ahadeth),
                 BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/sebha_blue.png')),
-                    label: 'Sebha'),
+                    icon: const ImageIcon(AssetImage('assets/images/sebha_blue.png')),
+                    label: AppLocalizations.of(context)!.sebha),
                 BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/radio_blue.png')),
-                    label: 'Radio'),
+                    icon: const ImageIcon(AssetImage('assets/images/radio_blue.png')),
+                    label: AppLocalizations.of(context)!.radio),
               ],
             ),
           ),

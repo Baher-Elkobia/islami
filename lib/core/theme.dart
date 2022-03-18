@@ -6,25 +6,27 @@ import 'colors.dart';
 
 
 
-// IconThemeData _customIconTheme(IconThemeData original) {
-//   return original.copyWith(color: kGrey900);
-// }
-
 const ColorScheme kColorScheme = ColorScheme(
   primary: kPrimary,
-  primaryContainer: kDarkBG,
-  secondary: kSecondary,
-  secondaryContainer: kSecondary,
-  surface: kSurfaceWhite,
-  background: Colors.white,
-  error: kErrorRed,
   onPrimary: kPrimaryMore,
-  onSecondary: kDarkBG,
-  onSurface: kDarkBG,
-  onBackground: kDarkBG,
+  primaryContainer: kPrimary,
+
+  secondary: kSecondary,
+  onSecondary: kDarkBgLight,
+  secondaryContainer: kSecondary,
+
+  surface: kGrey300,
+  onSurface: kDarkBgLight,
+
+  background: kGrey300,
+  onBackground: kDarkBgLight,
+
+  error: kErrorRed,
   onError: kSurfaceWhite,
+
   brightness: Brightness.light,
 );
+
 
 TextTheme _buildTextTheme(
     TextTheme base,
@@ -38,9 +40,6 @@ TextTheme _buildTextTheme(
       fontHeader,
       textStyle: base.headline1?.copyWith(
         fontWeight: FontWeight.w700,
-
-        /// If using the custom font, un-comment below and clone to other headline.., bodyText..
-        /// fontFamily: 'Your-Custom-Font',
       ),
     ),
     headline2: GoogleFonts.getFont(
@@ -91,8 +90,8 @@ TextTheme _buildTextTheme(
     ),
   )
       .apply(
-    displayColor: kDarkBG,
-    bodyColor: kDarkBG,
+    displayColor: kPrimaryMore,
+    bodyColor: kPrimaryMore,
   );
 }
 
@@ -110,30 +109,22 @@ ThemeData lightTheme(String language,
 
   return base.copyWith(
     brightness: Brightness.light,
-    cardColor: Colors.white,
     unselectedWidgetColor: Colors.grey,
     toggleableActiveColor: kPrimary,
-    errorColor: kErrorRed,
-    buttonTheme: const ButtonThemeData(
+    buttonTheme:  const ButtonThemeData(
         colorScheme: kColorScheme,
         textTheme: ButtonTextTheme.normal,
         buttonColor: kDarkBG),
-    primaryColorLight: kLightBG,
-    // primaryIconTheme: _customIconTheme(base.iconTheme),
     textTheme: _buildTextTheme(base.textTheme, language, fontFamily, fontHeader),
     primaryTextTheme: _buildTextTheme(base.primaryTextTheme, language),
-    // iconTheme: _customIconTheme(base.iconTheme),
-    // hintColor: Colors.black26,
-    // backgroundColor: Colors.white,
-    primaryColor: kPrimary,
     scaffoldBackgroundColor: Colors.transparent,
     appBarTheme: const AppBarTheme(
       color: Colors.transparent,
       elevation: 0,
       titleTextStyle: TextStyle(
-        color: kDarkBG,
-        fontSize: 18.0,
-        fontWeight: FontWeight.w800,
+        color: kPrimaryMore,
+        fontSize: 16.0,
+        fontWeight: FontWeight.w600,
       ),
       iconTheme: IconThemeData(
         color: kLightAccent,
@@ -151,7 +142,7 @@ ThemeData lightTheme(String language,
       labelStyle: TextStyle(fontSize: 13),
       unselectedLabelStyle: TextStyle(fontSize: 13),
     ),
-    colorScheme: kColorScheme.copyWith(secondary: kLightAccent),
+    colorScheme: kColorScheme,
   );
 }
 
@@ -167,27 +158,22 @@ ThemeData darkTheme(String language,
       displayColor: kLightBG,
       bodyColor: kLightBG,
     ),
-    canvasColor: kDarkBG,
-    cardColor: kDarkBgLight,
     brightness: Brightness.dark,
-    backgroundColor: kDarkBG,
-    primaryColor: kDarkBG,
-    primaryColorLight: kDarkBgLight,
     scaffoldBackgroundColor: Colors.transparent,
     appBarTheme: const AppBarTheme(
     color: Colors.transparent,
       elevation: 0,
       titleTextStyle: TextStyle(
-        color: kDarkBG,
-        fontSize: 18.0,
-        fontWeight: FontWeight.w800,
+        color: kGrey300,
+        fontSize: 16.0,
+        fontWeight: FontWeight.w600,
       ),
       iconTheme: IconThemeData(
         color: kDarkAccent,
       ),
     ),
     buttonTheme: ButtonThemeData(
-        colorScheme: kColorScheme.copyWith(onPrimary: kLightBG)),
+        colorScheme: kColorScheme.copyWith(brightness: Brightness.dark)),
     tabBarTheme: const TabBarTheme(
       labelColor: Colors.white,
       unselectedLabelColor: Colors.white,
@@ -195,6 +181,6 @@ ThemeData darkTheme(String language,
       labelStyle: TextStyle(fontSize: 13),
       unselectedLabelStyle: TextStyle(fontSize: 13),
     ),
-    // colorScheme: ColorScheme.fromSwatch().copyWith(secondary: kDarkAccent),
+    colorScheme: kColorScheme.copyWith(brightness: Brightness.dark),
   );
 }

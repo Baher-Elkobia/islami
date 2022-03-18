@@ -11,6 +11,7 @@ class SuraItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    ThemeData theme = Theme.of(context);
     return InkWell(
       onTap: () async{
         SuraInfo sura = await getSuraContent(no:suraMap['no']);
@@ -32,7 +33,7 @@ class SuraItem extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Text(
                   suraMap['ayat']!,
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  style: theme.textTheme.subtitle1,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -50,7 +51,7 @@ class SuraItem extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(vertical: 10.0),
                 child: Text(
                   suraMap['name']!,
-                  style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                  style: theme.textTheme.subtitle1,
                   textAlign: TextAlign.center,
                 ),
               ),

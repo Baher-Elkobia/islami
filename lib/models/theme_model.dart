@@ -7,4 +7,8 @@ class ThemeProvider extends ChangeNotifier{
     this.mode = mode;
     notifyListeners();
   }
+
+  String getBackground(){
+    return mode == ThemeMode.light? 'assets/images/defaultBackground.png' : 'assets/images/dark_bg.png';
+  }
 }

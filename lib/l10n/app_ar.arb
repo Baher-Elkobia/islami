@@ -1,3 +1,14 @@
 {
-  "islami": "Islami"
+  "settings": "إعدادات",
+  "darkMode": "أللون الداكن",
+  "language": "اللغه",
+  "aboutUs": "عن البرنامج",
+  "islamiSettings": "إعدادات إسلامي",
+  "suraName": "إسم السوره",
+  "noOfAyat": "عدد الأيات",
+  "quran": "قرأن",
+  "ahadeth": "أحاديث",
+  "sebha": "ألسبحه",
+  "radio": "راديو",
+  "islami": "إسلامي"
 }
