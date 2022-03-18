@@ -4,6 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'package:islami/core/theme.dart';
 import 'package:islami/core/utils.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SebhaScreen extends StatefulWidget {
   const SebhaScreen({Key? key}) : super(key: key);

@@ -1,3 +1,14 @@
 {
-  "islami": "إسلامي"
+  "settings": "Settings",
+  "darkMode": "Dark Mode",
+  "language": "Language",
+  "aboutUs": "About Us",
+  "islamiSettings": "Islami Settings",
+  "suraName": "Sura Name",
+  "noOfAyat": "No of Ayat",
+  "quran": "Quran",
+  "ahadeth": "Ahadeth",
+  "sebha": "Sebha",
+  "radio": "Radio",
+  "islami": "Islami"
 }
